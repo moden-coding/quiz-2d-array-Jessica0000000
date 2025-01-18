@@ -57,28 +57,25 @@ public class App {
 
 
     public static int columnRowAddition(int[][] arr, int row, int col){
-        int roww= row;
-        int coll=col;
        
         int sum=0;
-        int[] answer= new int[arr.length];
-          if(roww<0 || coll<0){
+          if(row<0 || col<0){
             return -1;
-          } else if(roww>2 ||coll>2){
+          } else if(row>=arr.length ||col>=arr[0].length){
             return -1;
-          } else
+          } 
         for(int i=0; i<arr[0].length; i++){
-                sum+=arr[roww][i];
+                sum+=arr[row][i];
                 }
                 for(int t=0;t<arr.length;t++){
                     // starting attempt to pass A+ tests
                     //if(arr[roww][i]==arr[t][coll]){
                     //     sum-=arr[roww][i]
                     // } else 
-                    sum+=arr[t][coll];
+                    sum+=arr[t][col];
                     
                 }
-       
+       sum-=arr[row][col];
         return sum;//placeholder
     }
 }
